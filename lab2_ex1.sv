@@ -1,11 +1,12 @@
 module lab2_ex1(
 	input logic clk,rst,clr,
 	input logic w,
-	output logic z
+	output logic z,
+	output logic [8:0] y
 );
 	
-wire [8:0] D,y;
-	
+wire [8:0] D;
+
 always_comb begin
 	if (y[4] == 1'b1 | y[8] == 1'b1)
 		z = 1'b1;
