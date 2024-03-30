@@ -13,15 +13,15 @@ always_comb begin
 	else z = 1'b0;
 end
 	
-assign  D[0] = rst;
-assign  D[1] = ~w&(y[0] | y[5] | y[6] | y[7] | y[8]) ;
-assign  D[2] = ~w&y[1] ;
-assign  D[3] = ~w&~y[2] ;
-assign  D[4] = ~w&(y[3] | y[4]);
-assign  D[5] = w&(y[0] | y[1] | y[2] | y[3] | y[4]) ;
-assign  D[6] = w&y[5] ;
-assign  D[7] = w&y[6] ;
-assign  D[8] = w&(y[7] | y[8]);
+assign  D[0] = ~rst;
+assign  D[1] = ~w & (y[0] | y[5] | y[6] | y[7] | y[8]) ;
+assign  D[2] = ~w & y[1] ;
+assign  D[3] = ~w & y[2] ;
+assign  D[4] = ~w & (y[3] | y[4]);
+assign  D[5] = w & (y[0] | y[1] | y[2] | y[3] | y[4]) ;
+assign  D[6] = w & y[5] ;
+assign  D[7] = w & y[6] ;
+assign  D[8] = w & (y[7] | y[8]);
 
 D_FF D_FF1 (.clk(clk), .rst(clr) , .data_i(D[0]) , .data_o(y[0]));
 D_FF D_FF2 (.clk(clk), .rst(clr) , .data_i(D[1]) , .data_o(y[1]));
